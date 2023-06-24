@@ -23,7 +23,7 @@ task generateHtml(type: org.openapitools.generator.gradle.plugin.tasks.GenerateT
     dependsOn "openApiValidate"
     generatorName.set("html")
     inputSpec.set("$rootDir/interface/specification.yaml")
-    outputDir.set("$rootDir/docs/html")
+    outputDir.set("$buildDir")
 }
 
 openApiValidate {
