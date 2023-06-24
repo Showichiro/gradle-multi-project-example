@@ -1,5 +1,6 @@
 plugins {
     id "java"
+    id "com.diffplug.spotless"
 }
 
 group = 'gradle.multi.project.example'
@@ -23,4 +24,12 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+spotless {
+  java {
+    importOrder()
+    removeUnusedImports()
+    googleJavaFormat()   // has its own section below
+  }
 }

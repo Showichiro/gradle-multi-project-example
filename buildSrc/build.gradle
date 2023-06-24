@@ -12,4 +12,5 @@ dependencies {
     // https://mvnrepository.com/artifact/io.spring.gradle/dependency-management-plugin
     implementation 'io.spring.gradle:dependency-management-plugin:1.1.0'
     implementation "org.openapitools:openapi-generator-gradle-plugin:6.6.0"
+    implementation "com.diffplug.spotless:spotless-plugin-gradle:6.19.0"
 }
