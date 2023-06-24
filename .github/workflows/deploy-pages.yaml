@@ -8,7 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    permissions:
+      pages: write
+      id-token: write
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 17
@@ -22,13 +24,6 @@ jobs:
         uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
         with:
           arguments: :interface:generateHtml
-  deploy:
-    needs: build
-    permissions:
-      pages: write
-      id-token: write
-    runs-on: ubuntu-latest
-    steps:
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
