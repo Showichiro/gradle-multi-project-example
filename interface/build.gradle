@@ -1,0 +1,32 @@
+plugins {
+    id "java-conventions"
+    id "org.openapi.generator"
+}
+
+task generateJava(type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask) {
+    dependsOn "openApiValidate"
+    generatorName.set("spring")
+    inputSpec.set("$rootDir/interface/specification.yaml")
+    outputDir.set("$rootDir/lib")
+    apiPackage.set("openapi.generated.api")
+    modelPackage.set("openapi.generated.model")
+    additionalProperties.set([
+        useSpringBoot3: "true",
+        useSwaggerUI: "true",
+        useResponseEntity:"false",
+        useOptional: "true",
+        interfaceOnly: "true"
+    ])
+}
+
+task generateHtml(type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask) {
+    dependsOn "openApiValidate"
+    generatorName.set("html")
+    inputSpec.set("$rootDir/interface/specification.yaml")
+    outputDir.set("$rootDir/docs/html")
+}
+
+openApiValidate {
+    inputSpec.set("$rootDir/interface/specification.yaml")
+    recommend.set(true)
+}

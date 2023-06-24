@@ -1,0 +1,14 @@
+README.md
+pom.xml
+src/main/java/openapi/generated/api/ApiUtil.java
+src/main/java/openapi/generated/api/PetApi.java
+src/main/java/openapi/generated/api/StoreApi.java
+src/main/java/openapi/generated/api/UserApi.java
+src/main/java/openapi/generated/model/Address.java
+src/main/java/openapi/generated/model/Category.java
+src/main/java/openapi/generated/model/Customer.java
+src/main/java/openapi/generated/model/ModelApiResponse.java
+src/main/java/openapi/generated/model/Order.java
+src/main/java/openapi/generated/model/Pet.java
+src/main/java/openapi/generated/model/Tag.java
+src/main/java/openapi/generated/model/User.java
