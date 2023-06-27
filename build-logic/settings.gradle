@@ -1,0 +1,10 @@
+rootProject.name = 'build-logic'
+include 'commons', 'java-library', 'spring-boot-application', 'openapi', 'spotless', 'lib'
+
+dependencyResolutionManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+    }
+}
+includeBuild('../platforms')

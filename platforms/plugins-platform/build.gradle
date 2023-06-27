@@ -1,0 +1,14 @@
+plugins {
+    id 'java-platform'
+}
+
+group = 'com.example.platform'
+
+dependencies {
+    constraints {
+        api 'org.springframework.boot:org.springframework.boot.gradle.plugin:3.1.1'
+        api 'io.spring.gradle:dependency-management-plugin:1.1.0'
+        api 'org.openapitools:openapi-generator-gradle-plugin:6.6.0'
+        api 'com.diffplug.spotless:spotless-plugin-gradle:6.19.0'
+    }
+}

@@ -1,0 +1,14 @@
+plugins {
+    id 'com.example.commons'
+    id 'com.diffplug.spotless'
+}
+
+spotless {
+  java {
+    importOrder()
+    removeUnusedImports()
+    cleanthat()
+    googleJavaFormat()
+    formatAnnotations()
+  }
+}

@@ -1,13 +1,13 @@
 plugins {
-    id "java-conventions"
-    id "org.openapi.generator"
+    id 'com.example.commons'
+    id 'com.example.openapi'
 }
 
 task generateJava(type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask) {
     dependsOn "openApiValidate"
     generatorName.set("spring")
-    inputSpec.set("$rootDir/interface/specification.yaml")
-    outputDir.set("$rootDir/lib")
+    inputSpec.set("$rootDir/specification.yaml")
+    outputDir.set("$rootDir/../lib")
     apiPackage.set("openapi.generated.api")
     modelPackage.set("openapi.generated.model")
     additionalProperties.set([
@@ -22,11 +22,11 @@ task generateJava(type: org.openapitools.generator.gradle.plugin.tasks.GenerateT
 task generateHtml(type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask) {
     dependsOn "openApiValidate"
     generatorName.set("html")
-    inputSpec.set("$rootDir/interface/specification.yaml")
+    inputSpec.set("$rootDir/specification.yaml")
     outputDir.set("$buildDir")
 }
 
 openApiValidate {
-    inputSpec.set("$rootDir/interface/specification.yaml")
+    inputSpec.set("$rootDir/specification.yaml")
     recommend.set(true)
 }

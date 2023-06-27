@@ -1,5 +1,7 @@
 plugins {
-	id 'java-conventions'
-	id "spring-conventions"
-    id "lib-conventions"
+    id 'com.example.commons'
+    id 'com.example.lib'
+    id 'com.example.spring-boot-application'
 }
+
+classes.dependsOn gradle.includedBuild('interface').task(':generateJava') 

@@ -1,4 +1,5 @@
 {
     "java.import.generatesMetadataFilesAtProjectRoot": true,
     "java.configuration.updateBuildConfiguration": "automatic",
+    "java.compile.nullAnalysis.mode": "disabled",
 }

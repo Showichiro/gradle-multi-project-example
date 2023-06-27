@@ -8,4 +8,8 @@
  */
 
 rootProject.name = 'gradle-multi-project-example'
-include "demo","interface","lib"
+includeBuild 'build-logic'
+includeBuild 'platforms'
+includeBuild 'server-application'
+includeBuild 'interface'
+includeBuild 'lib'
