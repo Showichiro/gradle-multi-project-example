@@ -10,5 +10,6 @@ spotless {
     cleanthat()
     googleJavaFormat()
     formatAnnotations()
+    target(fileTree("src/**/*.java"))
   }
 }

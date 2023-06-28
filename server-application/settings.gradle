@@ -2,7 +2,7 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
     }
-    includeBuild('../build-logic')
+    includeBuild '../build-logic'
 }
 
 dependencyResolutionManagement {
@@ -10,7 +10,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-includeBuild('../platforms')
-includeBuild('../lib')
+includeBuild '../platforms'
 rootProject.name = 'server-application'
 include 'demo'
+include 'interface'

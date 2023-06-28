@@ -1,0 +1,16 @@
+plugins {
+    id 'com.example.commons'
+    id 'com.example.openapi'
+}
+
+task generateHtml(type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask) {
+    dependsOn "openApiValidate"
+    generatorName.set("html")
+    inputSpec.set("$projectDir/specification.yaml")
+    outputDir.set("$buildDir")
+}
+
+openApiValidate {
+    inputSpec.set("$projectDir/specification.yaml")
+    recommend.set(true)
+}

@@ -1,10 +1,41 @@
 plugins {
     id 'com.example.spring-boot-application'
     id 'com.example.spotless'
+    id 'com.example.openapi'
+    id 'com.example.lib'
 }
 
 group = "${group}.server-application"
 
-dependencies {
-    implementation 'com.example.myproduct:lib'
+task generateJava(type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask) {
+    dependsOn "openApiValidate"
+    generatorName.set("spring")
+    inputSpec.set("${project(":interface").projectDir}/specification.yaml")
+    outputDir.set("$buildDir/generated")
+    apiPackage.set("openapi.generated.api")
+    modelPackage.set("openapi.generated.model")
+    additionalProperties.set([
+        useSpringBoot3: "true",
+        useSwaggerUI: "true",
+        useResponseEntity:"false",
+        useOptional: "true",
+        interfaceOnly: "true"
+    ])
+}
+
+openApiValidate {
+    inputSpec.set("${project(":interface").projectDir}/specification.yaml")
+    recommend.set(true)
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs "$buildDir/generated" 
+        }
+    }
+}
+
+compileJava {
+    dependsOn tasks.generateJava
 }
